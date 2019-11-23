@@ -32,16 +32,17 @@ const cachedResources = [
 
 ];
 
+// Service worker examples taken from https://developers.google.com/web/ilt/pwa/caching-files-with-service-worker
+
 // Add the install event listener
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(cacheName)
       .then(function(cache) {
-        console.log('Cache Opened');
         return cache.addAll(cachedResources);
       })
       .catch((err) => {
-        console.log('Error: ' + err);
+        console.log('Install failed: ' + err);
       })
   );
 });

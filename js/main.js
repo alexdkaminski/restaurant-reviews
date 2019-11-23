@@ -12,7 +12,6 @@ if(navigator.serviceWorker) {
   window.addEventListener('load', function() {
     navigator.serviceWorker.register('./serviceWorker.js').then(function(registration) {
       // Successful Registration
-      console.log('Registration successful with scope: ', registration.scope);
     }, function(err) {
       // Failed Registration
       console.log('Registration failed: ', err);
